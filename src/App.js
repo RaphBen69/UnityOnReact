@@ -10,10 +10,10 @@ import 'react-awesome-button/dist/styles.css';
 function App() {
 
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-    loaderUrl: "/PlanCreatorBuild/Build/PlanCreatorBuild.loader.js",
-    dataUrl: "/PlanCreatorBuild/Build/PlanCreatorBuild.data.unityweb",
-    frameworkUrl: "/PlanCreatorBuild/Build/PlanCreatorBuild.framework.js.unityweb",
-    codeUrl: "/PlanCreatorBuild/Build/PlanCreatorBuild.wasm.unityweb",
+    loaderUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.loader.js",
+    dataUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.data.unityweb",
+    frameworkUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.framework.js.unityweb",
+    codeUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.wasm.unityweb",
   });
 
   // We'll round the loading progression to a whole number to represent the
