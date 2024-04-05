@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/UnityOnReact/static/css/main.1967b5c3.css",
-    "main.js": "/UnityOnReact/static/js/main.6d7b3b14.js",
+    "main.js": "/UnityOnReact/static/js/main.c42b982e.js",
     "static/js/453.52067e55.chunk.js": "/UnityOnReact/static/js/453.52067e55.chunk.js",
     "index.html": "/UnityOnReact/index.html",
     "main.1967b5c3.css.map": "/UnityOnReact/static/css/main.1967b5c3.css.map",
-    "main.6d7b3b14.js.map": "/UnityOnReact/static/js/main.6d7b3b14.js.map",
+    "main.c42b982e.js.map": "/UnityOnReact/static/js/main.c42b982e.js.map",
     "453.52067e55.chunk.js.map": "/UnityOnReact/static/js/453.52067e55.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1967b5c3.css",
-    "static/js/main.6d7b3b14.js"
+    "static/js/main.c42b982e.js"
   ]
 }
