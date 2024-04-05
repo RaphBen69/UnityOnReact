@@ -6,21 +6,12 @@ import 'react-awesome-button/dist/styles.css';
 
 function App() {
 
-  /*/
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-    loaderUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.loader.js",
-    dataUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.data.unityweb",
-    frameworkUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.framework.js.unityweb",
-    codeUrl: "PlanCreatorBuild/Build/PlanCreatorBuild.wasm.unityweb",
+    loaderUrl: "Build/Build.loader.js",
+    dataUrl: "Build/Build.data",
+    frameworkUrl: "Build/Build.framework.js",
+    codeUrl: "Build/Build.wasm",
   });
-/*/
-const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-  loaderUrl: "Build/Build.loader.js",
-  dataUrl: "Build/Build.data",
-  frameworkUrl: "Build/Build.framework.js",
-  codeUrl: "Build/Build.wasm",
-});
-//*/
 
   // We'll round the loading progression to a whole number to represent the
   // percentage of the Unity Application that has loaded.
