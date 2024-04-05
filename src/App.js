@@ -1,12 +1,12 @@
 import './App.css';
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 
 function App() {
 
-  const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
+  const { unityProvider, sendMessage, addEventListener, removeEventListener, isLoaded, loadingProgression, requestFullscreen  } = useUnityContext({
     loaderUrl: "Build/Build.loader.js",
     dataUrl: "Build/Build.data",
     frameworkUrl: "Build/Build.framework.js",
@@ -16,6 +16,28 @@ function App() {
   // We'll round the loading progression to a whole number to represent the
   // percentage of the Unity Application that has loaded.
   const loadingPercentage = Math.round(loadingProgression * 100);
+
+  const [coins, SetCoins] = useState(0);
+
+  const handleCoin = useCallback((points) => {
+    SetCoins(coins => coins + points);
+  }, []);
+
+  function handleClickButton() {
+    SetCoins(0);
+    sendMessage("ReactController", "OnReactMessage", "Reset");
+  }
+
+  useEffect(() => {
+    addEventListener("AddCoins", handleCoin);
+    return () => {
+      removeEventListener("AddCoins", handleCoin);
+    };
+  }, [addEventListener, removeEventListener, handleCoin]);
+
+  function handleClickEnterFullscreen() {
+    requestFullscreen(true);
+  }
 
   return (
     <div className="App">
@@ -27,8 +49,10 @@ function App() {
             <p>Loading... ({loadingPercentage}%)</p>
           </div>
         )}
-        <Unity unityProvider={unityProvider} style={{ width: 600, height: 400 }} />
-        <AwesomeButton type="primary">Button</AwesomeButton>
+        <span className="counter__output">Coins {coins}</span>
+        <Unity unityProvider={unityProvider} style={{ width: '100vw', height: '60vw', maxWidth: 800, maxHeight: 450 }} />
+        <AwesomeButton type="primary" onPress={handleClickButton}>Reset</AwesomeButton>
+        <AwesomeButton type="primary" onPress={handleClickEnterFullscreen}>Enter Fullscreen</AwesomeButton>
       </header>
       
     </div>
